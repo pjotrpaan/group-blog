@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-group">
-          {{ Form::label('cover_image', 'Upload cover image') }}
+          {{ Form::label('cover_image', 'Upload cover image (recommended size 1200x400px)') }}
           {{ Form::file('cover_image') }}
         </div>
 

@@ -3,14 +3,11 @@
 @section('content')
 
   <div>
+    @include('includes.create_post')
     <h1>Latest blog posts</h1>
   </div>
   
-
-  @if(count($posts) > 0)
-    @if(!Auth::guest())
-      <a href="/posts/create" class="btn btn-primary pull-right">Create new post</a>
-    @endif
+  @if(count($posts) > 0)''
     @foreach ($posts as $post)
     <div class="col-md-6 col-sm-6">
       <div class="row well">
@@ -36,16 +33,9 @@
       </div>
     </div>       
     @endforeach
-
     {{ $posts->links() }}
-
   @else
-
     <p class="">Oops! No blog posts available. You could be the first one to create a post.</p>
-    @if(!Auth::guest())
-      <a href="/posts/create" class="btn btn-primary">Create new post</a>
-    @endif
-
   @endif 
 
 @endsection('content')

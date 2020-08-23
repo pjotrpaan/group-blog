@@ -22,7 +22,7 @@
     <p>{!! $post->body !!}</p>
   </div>
 
-  @include('includes.modify')  
+  @include('includes.edit_delete_btns')  
 
   @include('includes.comments')
 
