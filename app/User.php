@@ -34,4 +34,12 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Models\Post');
     }
+
+    /**
+     * Get the comments for the user.
+     */
+    public function comments()
+    {
+      return $this->hasMany('App\Models\Comment');
+    }
 }
