@@ -13,7 +13,11 @@
 
 Route::get('/', 'PageController@index');
 
+Route::resource('comment','CommentController');
+
 Route::resource('posts', 'PostController');
+
+Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
 
 
 Auth::routes();

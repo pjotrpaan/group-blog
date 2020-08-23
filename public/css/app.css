@@ -8343,6 +8343,10 @@ h3,
   display: inline-block;
 }
 
+hr {
+  border-top: 1px solid #e2e2e2;
+}
+
 .main {
   margin-top: 75px;
 }
@@ -8367,6 +8371,10 @@ h3,
 }
 
 .edit-section {
-  height: 60px;
+  height: 33px;
+}
+
+.comments-container {
+  margin-bottom: 100px;
 }
 
