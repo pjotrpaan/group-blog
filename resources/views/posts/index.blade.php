@@ -6,7 +6,7 @@
     <h1>Latest blog posts</h1>
     
     @if(!Auth::guest())
-      <a href="/posts/create" class="btn btn-default content-nav-btn">Create new post</a>
+      <a href="/posts/create" class="btn btn-default pull-right">Create new post</a>
     @endif
   </div>
   
@@ -43,11 +43,7 @@
 
   @else
 
-    <p class="text-center">Oops! No blog posts available. You could be the first one to create a post.</p>
-
-    @if(!Auth::guest())
-      <a href="/posts/create" class="btn btn-default content-nav-btn">Create new post</a>
-    @endif
+    <p class="">Oops! No blog posts available. You could be the first one to create a post.</p>
 
   @endif 
 
