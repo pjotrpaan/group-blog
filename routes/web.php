@@ -13,5 +13,8 @@
 
 Route::get('/', 'PageController@index');
 
+Route::resource('posts', 'PostController');
+
+
 Auth::routes();
 
