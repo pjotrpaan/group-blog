@@ -7,26 +7,26 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      $posts = Post::orderBy('created_at', 'desc')->paginate(10);
-      return view('posts.index')->with('posts', $posts);
-    }
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+    $posts = Post::orderBy('created_at', 'desc')->paginate(10);
+    return view('posts.index')->with('posts', $posts);
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-      return view('posts.create');
-    }
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function create()
+  {
+    return view('posts.create');
+  }
 
     /**
    * Store a newly created resource in storage.
@@ -52,49 +52,73 @@ class PostController extends Controller
     return redirect('/posts');
   }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-      $post = Post::find($id);
-      return view('posts.show')->with('post', $post);
-    }
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function show($id)
+  {
+    $post = Post::find($id);
+    return view('posts.show')->with('post', $post);
+  }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function edit($id)
+  {
+    $post = Post::find($id);
+    // Don't allow unregistered users edit posts
+    if (auth()->user()->id !== $post->user_id) 
     {
-        //
+      return redirect('/posts')->with('error', 'You are not authorised to edit posts.');
     }
+    return view('posts.edit')->with('post', $post);
+  }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function update(Request $request, $id)
+  {
+    // Validate form fields
+    $this->validate($request, [
+      'title' => 'required',
+      'body' => 'required',
+    ]);
+    // Create post
+    $post = Post::find($id);
+    $post->title = $request->input('title');
+    $post->body = $request->input('body');
+    $post->save();
+    return redirect('/posts/'.$id)->with('success', 'Blog post successfully updated!');
+  }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy($id)
+  {
+    $post = Post::find($id);
+    // Don't allow unregistered users delete posts
+    if (auth()->user()->id !== $post->user_id) 
     {
-        //
+      return redirect('/posts')->with('error', 'You are not authorised to delete posts.');
     }
+    $post->delete();
+    return redirect('/posts')->with('success', 'Blog post successfully deleted!');
+  }
+
 }
