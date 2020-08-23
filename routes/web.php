@@ -19,6 +19,9 @@ Route::resource('posts', 'PostController');
 
 Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
 
+Route::get('/dashboard', 'DashboardController@index');
+
+
 
 Auth::routes();
 

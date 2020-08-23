@@ -4,6 +4,7 @@
 
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
+      @include('includes.to_dashboard')
       <h1 class="single-post-h1">Create post</h1>
     </div>
   </div>

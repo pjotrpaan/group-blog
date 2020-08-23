@@ -8340,7 +8340,6 @@ h2,
 h3,
 .h3 {
   margin-bottom: 22px;
-  display: inline-block;
 }
 
 hr {
@@ -8361,6 +8360,10 @@ hr {
 
 .back-btn:hover {
   opacity: 1.0;
+}
+
+.create-btn {
+  margin-bottom: 22px;
 }
 
 .single-cover {

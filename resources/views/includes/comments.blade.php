@@ -1,6 +1,6 @@
 <div class="comments-container">
   <h3>Comments</h3>
-  <hr>
+  <br>
   @forelse ($post->comments as $comment)
     <p>{{ $comment->body }}</p>
     <small>

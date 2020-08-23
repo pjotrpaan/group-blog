@@ -7,7 +7,7 @@
     <h1>Latest blog posts</h1>
   </div>
   
-  @if(count($posts) > 0)''
+  @if(count($posts) > 0)
     @foreach ($posts as $post)
     <div class="col-md-6 col-sm-6">
       <div class="row well">
