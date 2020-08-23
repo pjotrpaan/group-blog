@@ -8352,6 +8352,11 @@ h3,
   top: 25px;
   right: 15px;
   z-index: 100;
+  opacity: 0.65;
+}
+
+.back-btn:hover {
+  opacity: 1.0;
 }
 
 .single-cover {

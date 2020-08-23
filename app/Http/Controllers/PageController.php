@@ -7,16 +7,6 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
   /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
-  
-  /**
    * Display a index page with title.
    *
    * @return \Illuminate\Http\Response
