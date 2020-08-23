@@ -20,6 +20,7 @@
     <div>
       @include('includes.navbar')
       <div class="container main">
+        @include('includes.messages')
         <!-- Page content -->
         @yield('content')
       </div>
