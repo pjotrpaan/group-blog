@@ -15,6 +15,7 @@
   <body>
     <!-- App container -->
     <div>
+      @include('includes.navbar')
       <div class="container main">
         <!-- Page content -->
         @yield('content')
