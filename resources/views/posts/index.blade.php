@@ -31,7 +31,7 @@
           </div>
 
           <div class="col-md-6 col-sm-6">
-            <p>{!! str_limit($post->body, $limit = 175, $end = '...') !!}</p>
+            <p>{!! str_limit($post->body, $limit = 212, $end = '...') !!}</p>
           </div>
         </div>
 
