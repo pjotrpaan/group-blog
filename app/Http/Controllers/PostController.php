@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Controllers\StoreController;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware('auth', [ 'except' => [ 'index', 'show' ] ]);
+  }
   /**
    * Display a listing of the resource.
    *
@@ -28,7 +39,7 @@ class PostController extends Controller
     return view('posts.create');
   }
 
-    /**
+  /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -36,10 +47,11 @@ class PostController extends Controller
    */
   public function store(Request $request)
   {
-    //Validate form fields
+    // Validate form fields
     $this->validate($request, [
       'title' => 'required',
       'body' => 'required',
+      'cover_image' => 'image|nullable|max:1999',
     ]);
 
     // Create post
@@ -47,9 +59,9 @@ class PostController extends Controller
     $post->title = $request->input('title');
     $post->body = $request->input('body');
     $post->user_id = auth()->user()->id;
+    $post->cover_image = StoreController::saveFile($request, 'cover_image');
     $post->save();
-
-    return redirect('/posts');
+    return redirect('/posts/')->with('success', 'Blog post successfully created!');
   }
 
   /**
@@ -73,11 +85,13 @@ class PostController extends Controller
   public function edit($id)
   {
     $post = Post::find($id);
+
     // Don't allow unregistered users edit posts
     if (auth()->user()->id !== $post->user_id) 
     {
       return redirect('/posts')->with('error', 'You are not authorised to edit posts.');
     }
+
     return view('posts.edit')->with('post', $post);
   }
 
@@ -94,11 +108,14 @@ class PostController extends Controller
     $this->validate($request, [
       'title' => 'required',
       'body' => 'required',
+      'cover_image' => 'image|nullable|max:1999',
     ]);
+    
     // Create post
     $post = Post::find($id);
     $post->title = $request->input('title');
     $post->body = $request->input('body');
+    $post->cover_image = StoreController::saveFile($request, 'cover_image');
     $post->save();
     return redirect('/posts/'.$id)->with('success', 'Blog post successfully updated!');
   }
@@ -112,11 +129,19 @@ class PostController extends Controller
   public function destroy($id)
   {
     $post = Post::find($id);
+
     // Don't allow unregistered users delete posts
     if (auth()->user()->id !== $post->user_id) 
     {
       return redirect('/posts')->with('error', 'You are not authorised to delete posts.');
     }
+
+    // Delete uploaded cover from storage
+    if ($post->cover_image != 'cover_placeholder_1200x400px.jpg') 
+    {
+      Storage::delete('public/cover_images/'.$post->cover_image);
+    }
+    
     $post->delete();
     return redirect('/posts')->with('success', 'Blog post successfully deleted!');
   }

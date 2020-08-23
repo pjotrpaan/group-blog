@@ -4,15 +4,13 @@
 
   <div>
     <h1>Latest blog posts</h1>
-    
-    @if(!Auth::guest())
-      <a href="/posts/create" class="btn btn-default pull-right">Create new post</a>
-    @endif
   </div>
   
 
   @if(count($posts) > 0)
-
+    @if(!Auth::guest())
+      <a href="/posts/create" class="btn btn-primary pull-right">Create new post</a>
+    @endif
     @foreach ($posts as $post)
     <div class="col-md-6 col-sm-6">
       <div class="row well">
@@ -38,12 +36,15 @@
       </div>
     </div>       
     @endforeach
-    
+
     {{ $posts->links() }}
 
   @else
 
     <p class="">Oops! No blog posts available. You could be the first one to create a post.</p>
+    @if(!Auth::guest())
+      <a href="/posts/create" class="btn btn-primary">Create new post</a>
+    @endif
 
   @endif 
 

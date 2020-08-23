@@ -8333,7 +8333,35 @@ button.close {
   }
 }
 
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-bottom: 22px;
+  display: inline-block;
+}
+
 .main {
-  margin-top: 100px;
+  margin-top: 75px;
+}
+
+.back-btn {
+  position: relative;
+  top: 25px;
+  right: 15px;
+  z-index: 100;
+}
+
+.single-cover {
+  width: 100%;
+  top: -25px;
+  position: relative;
+  border-radius: 5px;
+}
+
+.edit-section {
+  height: 60px;
 }
 
