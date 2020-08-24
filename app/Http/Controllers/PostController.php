@@ -54,12 +54,22 @@ class PostController extends Controller
       'cover_image' => 'image|nullable|max:1999',
     ]);
 
+    // Handle file upload
+    if ($request->hasFile('cover_image')) 
+    {
+      $coverImageToStore = StoreController::saveFile($request, 'cover_image');
+    }
+    else
+    {
+      $coverImageToStore = 'cover_placeholder_1200x400px.jpg';
+    }
+
     // Create post
     $post = new Post;
     $post->title = $request->input('title');
     $post->body = $request->input('body');
     $post->user_id = auth()->user()->id;
-    $post->cover_image = StoreController::saveFile($request, 'cover_image');
+    $post->cover_image = $coverImageToStore;
     $post->save();
     return redirect('/posts/')->with('success', 'Blog post successfully created!');
   }
@@ -111,11 +121,15 @@ class PostController extends Controller
       'cover_image' => 'image|nullable|max:1999',
     ]);
     
-    // Create post
+    // Update post
     $post = Post::find($id);
     $post->title = $request->input('title');
     $post->body = $request->input('body');
-    $post->cover_image = StoreController::saveFile($request, 'cover_image');
+    if ($request->hasFile('cover_image')) 
+    {
+      Storage::delete('public/cover_images/' . $post->cover_image);
+      $post->cover_image = StoreController::saveFile($request, 'cover_image');
+    }
     $post->save();
     return redirect('/posts/'.$id)->with('success', 'Blog post successfully updated!');
   }
@@ -141,7 +155,6 @@ class PostController extends Controller
     {
       Storage::delete('public/cover_images/'.$post->cover_image);
     }
-    
     $post->delete();
     return redirect('/posts')->with('success', 'Blog post successfully deleted!');
   }

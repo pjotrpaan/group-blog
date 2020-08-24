@@ -14,22 +14,13 @@ class StoreController extends Controller
    */
   public static function saveFile($request, $destination)
   {
-    // Handle file upload
-    if ($request->hasFile('cover_image')) 
-    {
-      // Prepare file and name with extension
-      $uploadedFileNameWithExt = $request->file('cover_image')->getClientOriginalName();
-      $fileName = pathinfo($uploadedFileNameWithExt, PATHINFO_FILENAME);
-      $fileExt = $request->file('cover_image')->getClientOriginalExtension();
-      $coverImageToStore = $fileName.'_'.time().'.'.$fileExt; 
-      // Store file
-      $path = $request->file('cover_image')->storeAs('public/'.$destination, $coverImageToStore);
-      return $coverImageToStore;
-    } 
-    else 
-    {
-      // If no image added
-      return 'cover_placeholder_1200x400px.jpg';
-    }
+    // Prepare file and name with extension
+    $uploadedFileNameWithExt = $request->file($destination)->getClientOriginalName();
+    $fileName = pathinfo($uploadedFileNameWithExt, PATHINFO_FILENAME);
+    $fileExt = $request->file($destination)->getClientOriginalExtension();
+    $fileNameToStore = $fileName.'_'.time().'.'.$fileExt; 
+    // Store file
+    $path = $request->file($destination)->storeAs('public/'.$destination, $fileNameToStore);
+    return $fileNameToStore;
   }
 }

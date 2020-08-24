@@ -21,6 +21,8 @@ Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
 
 Route::get('/dashboard', 'DashboardController@index');
 
+Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');
+
 
 
 Auth::routes();
