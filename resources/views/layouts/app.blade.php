@@ -28,11 +28,13 @@
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script>
-      CKEDITOR.replace( 'article-ckeditor', {
-        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-      });
-    </script>
+    @if(\Request::is('*/edit') OR \Request::is('*/create'))
+      <script>
+        CKEDITOR.replace( 'ckeditor', {
+          filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+          filebrowserUploadMethod: 'form'
+        });
+      </script>
+    @endif
   </body>
 </html>

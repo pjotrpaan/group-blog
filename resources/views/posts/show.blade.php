@@ -2,12 +2,12 @@
 
 @section('content')
 
-  <div>
+  <div class="row single-post-heading">
     <a href="/posts" class="btn btn-default back-btn pull-right">Back to posts</a>
     <img class="single-cover" src="/storage/cover_images/{{ $post->cover_image }}" />
     <h1 class="single-post-h1">{{ $post->title }}</h1>
     <div>
-      <small class="d-block">
+      <small>
         Author: {{ $post->user->name }}
         <br>Posted on: {{ $post->created_at->format('d. M Y H:i') }}
         @if ($post->created_at != $post->updated_at)
@@ -15,15 +15,14 @@
         @endif
       </small>
     </div>
-    <hr>
   </div>
 
-  <div class="well">
+  <div class="row well">
     <p>{!! $post->body !!}</p>
   </div>
-
+  <div class="row">
   @include('includes.edit_delete_btns')  
 
   @include('includes.comments')
-
+  </div>
 @endsection('content')

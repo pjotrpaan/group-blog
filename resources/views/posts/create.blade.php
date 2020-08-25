@@ -29,7 +29,7 @@
         <div class="form-group">  
           {{ Form::label('body', 'Post body') }}
           {{ Form::textarea('body', '', [ 
-            'id' => 'article-ckeditor', 
+            'id' => 'ckeditor', 
             'class' => 'form-control', 
             'placeholder' => 'Enter post body copy...' 
           ]) }}

@@ -22,7 +22,7 @@ class CkeditorController extends Controller
 
       $CKEditorFuncNum = $request->input('CKEditorFuncNum');
       $url = asset('storage/upload/'.$filenameToStore);
-      $msg = 'Image successfully uploaded';
+      $msg = 'File upload successful!';
       $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
         
       // Render HTML output
