@@ -18,6 +18,7 @@
     </div>
 
     <div class="collapse navbar-collapse">
+
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('/') ? 'active' : '' }}">
@@ -27,7 +28,27 @@
           <a href="/posts">@lang('Posts')</a>
         </li>
       </ul>
+      
       <!-- Right Side Of Navbar -->
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Localization Links -->
+        @php $locale = session()->get('locale'); @endphp
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                @if ($locale == 'en')
+                  <img src="{{asset('storage/lang_images/uk.png')}}" width="27px" height="18px"> EN
+                @elseif ($locale == 'et')
+                  <img src="{{asset('storage/lang_images/est.png')}}" width="27px" height="18px"> ET
+                @endif
+                <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right location-dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/en"><img src="{{asset('storage/lang_images/uk.png')}}" width="27px" height="18px"> EN</a>
+                <a class="dropdown-item" href="/et"><img src="{{asset('storage/lang_images/est.png')}}" width="27px" height="18px"> ET</a>
+            </div>
+        </li>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
         @if (Auth::guest())
@@ -62,6 +83,7 @@
           </li>
         @endif
       </ul>
+
     </div>
 
   </div>

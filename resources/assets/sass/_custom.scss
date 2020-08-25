@@ -61,3 +61,12 @@ hr {
   display: -webkit-flex;
   flex-wrap: wrap;
 }
+
+.location-dropdown-menu {
+  min-width: 70px;
+  padding: 5px;
+}
+.location-dropdown-menu .dropdown-item {
+  margin: 10px 0;
+  display: inline-block;
+}
