@@ -26,8 +26,9 @@
                   <td>
                     <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                   </td>
-                  <td>{{ $post->created_at->format('d. M Y H:i') }}</td>
-                  <td>{{ $post->updated_at->format('d. M Y H:i') }}</td>
+                  <td>{{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}</td>
+                  <td>{{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}</td>
+
                   <td>
                     {!! Form::open([ 
                       'action' => ['PostController@edit', $post->id],

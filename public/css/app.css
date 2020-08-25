@@ -8384,6 +8384,15 @@ td {
   margin-bottom: 66px;
 }
 
+.index > div.well {
+  opacity: 0.8;
+  border: 8px solid #fff;
+}
+
+.index > div.well h1 {
+  font-weight: 600;
+}
+
 .jumbotron {
   padding: 20px;
   opacity: 0.9;

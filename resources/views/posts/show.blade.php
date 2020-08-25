@@ -8,16 +8,17 @@
     <h1 class="single-post-h1">{{ $post->title }}</h1>
     <div>
       <small>
-        @lang('By') {{ $post->user->name }}
-        <br>@lang('Posted on:') {{ $post->created_at->format('d. M Y H:i') }}
+        @lang('By') {{ $post->user->name }} 
+        {{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}
         @if ($post->created_at != $post->updated_at)
-          <br>@lang('Updated on:') {{ $post->updated_at->format('d. M Y H:i') }}
+          <br>@lang('Updated on:') 
+          {{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}
         @endif
       </small>
     </div>
   </div>
 
-  <div class="row well">
+  <div class="row">
     <p>{!! $post->body !!}</p>
   </div>
   <div class="row">

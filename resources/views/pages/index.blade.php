@@ -38,9 +38,11 @@
             <div class="col-lg-12 col-md-12 col-sm-12">
               <small>
                 @lang('By') {{ $post->user->name }}
-                <br>@lang('Posted on:') {{ $post->created_at->format('d. M Y H:i') }}
+                <br>@lang('Posted on:') 
+                {{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}
                 @if ($post->created_at != $post->updated_at)
-                  <br>@lang('Updated on:') {{ $post->updated_at->format('d. M Y H:i') }}
+                  <br>@lang('Updated on:') 
+                  {{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}
                 @endif
               </small>
             </div>

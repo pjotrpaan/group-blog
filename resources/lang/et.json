@@ -37,7 +37,7 @@
   "__SINGLE_POST__": "START",
   "Delete post": "Kustuta postitus",
   "Edit post": "Muuda postitust",
-  "Back to posts": "Tagasi",
+  "Back to posts": "Kõik postitused",
   "__POST_CONTROLLER__":"START",
   "Blog post successfully created!": "Uus postitus edukalt salvestatud!",
   "You are not authorised to edit posts.": "Sul puuduvad õigused postituste muutmiseks.",

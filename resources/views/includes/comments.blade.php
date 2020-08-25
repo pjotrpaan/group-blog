@@ -11,7 +11,7 @@
           @lang('By:') {{ $comment->user->name }}
         @endif
         <br>
-        {{$comment->created_at->format('d. M Y H:i')}}
+        {{ App\Http\Controllers\DateController::formatDateByLocale($post->created_at, session()->get('locale')) }}
       </em>
     </small>
     <p>
