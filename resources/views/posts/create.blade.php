@@ -3,7 +3,7 @@
 @section('content')
 <div class="container create">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-lg-12 col-md-12 col-sm-12">
       @include('includes.to_dashboard')
       <h1 class="single-post-h1">@lang('Create post')</h1>
     </div>

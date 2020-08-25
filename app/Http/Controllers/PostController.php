@@ -71,7 +71,7 @@ class PostController extends Controller
     $post->user_id = auth()->user()->id;
     $post->cover_image = $coverImageToStore;
     $post->save();
-    return redirect('/posts/')->with('success', __('Blog post successfully created!'));
+    return redirect('/posts/'.$post->id)->with('success', __('Blog post successfully created!'));
   }
 
   /**

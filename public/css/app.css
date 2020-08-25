@@ -8335,10 +8335,11 @@ button.close {
 
 html {
   height: 100%;
+  background-color: #5cd1e4;
 }
 
 body {
-  width: 100%;
+  width: auto;
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8370,15 +8371,9 @@ td {
   margin-bottom: 66px;
 }
 
-.email,
-.login,
-.reset,
-.register,
-.index,
-.dashboard,
-.create,
-.edit {
-  padding-top: 40px;
+.well {
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .messages {
@@ -8401,6 +8396,12 @@ td {
           filter: drop-shadow(0 0 0.35rem black);
 }
 
+.navbar-brand > img {
+  display: inline-block;
+  width: 55px;
+  margin-right: 5px;
+}
+
 .dashboard {
   margin-bottom: 166px;
   margin-left: auto;
@@ -8409,13 +8410,14 @@ td {
 
 .dashboard .well {
   padding: 14px;
+  margin-top: 22px;
   margin-bottom: 0;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.725);
   border: 1px solid transparent;
 }
 
-.create,
-.edit {
+.create .well,
+.edit .well {
   width: calc(100% - 22px);
   margin: 15px 11px 66px;
 }
@@ -8490,9 +8492,9 @@ td {
 
 footer {
   text-align: center;
-  color: #fff;
+  color: #636363;
   font-size: 1.0rem;
-  background-color: #5cd1e4;
+  background-color: #000;
   width: 100%;
   padding: 8px;
   position: fixed;
@@ -8509,5 +8511,9 @@ footer {
 
 .alert-success {
   border-color: #6bc361;
+}
+
+.alert-danger {
+  border-color: #a94442;
 }
 

@@ -1,3 +1,5 @@
+<div class="container-fluid">
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
 
   <div class="container">
@@ -13,7 +15,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <b>@lang('Group Blog App')</b>
+        <img src="/storage/cover_images/logo-big.png">
       </a>
     </div>
 
@@ -24,7 +26,7 @@
         <li class="{{ Request::is($locale) ? 'active' : '' }}">
           <a href="/">@lang('Home')</a>
         </li>
-        <li class="{{ Request::is($locale.'/posts') ? 'active' : '' }}">
+        <li class="{{ Request::is($locale.'/posts') || Request::is($locale.'/postitused') ? 'active' : '' }}">
           <a href="/posts">@lang('Posts')</a>
         </li>
       </ul>
@@ -51,8 +53,8 @@
       <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
         @if (Auth::guest())
-          <li><a href="{{ route('login') }}">@lang('Login')</a></li>
-          <li><a href="{{ route('register') }}">@lang('Register')</a></li>
+          <li class="{{ Request::is($locale.'/login') ? 'active' : '' }}"><a href="{{ route('login') }}">@lang('Login')</a></li>
+          <li class="{{ Request::is($locale.'/register') || Request::is($locale.'/registeeeru') ? 'active' : '' }}"><a href="{{ route('register') }}">@lang('Register')</a></li>
         @else
         <!-- Authenticated User Links -->
           <li class="dropdown">
@@ -90,3 +92,5 @@
   </div>
   
 </nav>
+
+</div>

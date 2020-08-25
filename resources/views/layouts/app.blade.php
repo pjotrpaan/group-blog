@@ -15,7 +15,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
 
-  <body style="background-image:url({{ asset("storage/cover_images/ian-dooley-hpTH5b6mo2s-unsplash.jpg") }});">
+  <body style="background-image:url({{ asset("storage/cover_images/ian-dooley-DuBNA1QMpPA-unsplash.jpg") }});">
     <!-- App container -->
     <div>
     @include('includes.navbar')
