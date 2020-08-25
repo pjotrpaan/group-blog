@@ -7,13 +7,13 @@
         class="navbar-toggle collapsed" 
         data-toggle="collapse" 
         data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">@lang('Toggle navigation')</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <b>{{ config('app.name', 'Group Blog') }}</b>
+        <b>@lang('Group Blog App')</b>
       </a>
     </div>
 
@@ -21,18 +21,18 @@
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
         <li class="{{ Request::is('/') ? 'active' : '' }}">
-          <a href="/">Home</a>
+          <a href="/">@lang('Home')</a>
         </li>
         <li class="{{ Request::is('posts') ? 'active' : '' }}">
-          <a href="/posts">Posts</a>
+          <a href="/posts">@lang('Posts')</a>
         </li>
       </ul>
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right">
         <!-- Authentication Links -->
         @if (Auth::guest())
-          <li><a href="{{ route('login') }}">Login</a></li>
-          <li><a href="{{ route('register') }}">Register</a></li>
+          <li><a href="{{ route('login') }}">@lang('Login')</a></li>
+          <li><a href="{{ route('register') }}">@lang('Register')</a></li>
         @else
         <!-- Authenticated User Links -->
           <li class="dropdown">
@@ -44,12 +44,12 @@
               {{ Auth::user()->name }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/dashboard">@lang('Dashboard')</a></li>
               <li>
                 <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-                  Logout
+                  @lang('Logout')
                 </a>
                 <form id="logout-form" 
                   action="{{ route('logout') }}" 
