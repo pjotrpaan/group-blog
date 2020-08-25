@@ -71,7 +71,7 @@ class PostController extends Controller
     $post->user_id = auth()->user()->id;
     $post->cover_image = $coverImageToStore;
     $post->save();
-    return redirect('/posts/')->with('success', 'Blog post successfully created!');
+    return redirect('/posts/')->with('success', __('Blog post successfully created!'));
   }
 
   /**
@@ -99,7 +99,7 @@ class PostController extends Controller
     // Don't allow unregistered users edit posts
     if (auth()->user()->id !== $post->user_id) 
     {
-      return redirect('/posts')->with('error', 'You are not authorised to edit posts.');
+      return redirect('/posts')->with('error', __('You are not authorised to edit posts.'));
     }
 
     return view('posts.edit')->with('post', $post);
@@ -131,7 +131,7 @@ class PostController extends Controller
       $post->cover_image = StoreController::saveFile($request, 'cover_image');
     }
     $post->save();
-    return redirect('/posts/'.$id)->with('success', 'Blog post successfully updated!');
+    return redirect('/posts/'.$id)->with('success', __('Blog post successfully updated!'));
   }
 
   /**
@@ -147,7 +147,7 @@ class PostController extends Controller
     // Don't allow unregistered users delete posts
     if (auth()->user()->id !== $post->user_id) 
     {
-      return redirect('/posts')->with('error', 'You are not authorised to delete posts.');
+      return redirect('/posts')->with('error', __('You are not authorised to delete posts.'));
     }
 
     // Delete uploaded cover from storage
@@ -156,7 +156,7 @@ class PostController extends Controller
       Storage::delete('public/cover_images/'.$post->cover_image);
     }
     $post->delete();
-    return redirect('/posts')->with('success', 'Blog post successfully deleted!');
+    return redirect('/posts')->with('success', __('Blog post successfully deleted!'));
   }
 
 }

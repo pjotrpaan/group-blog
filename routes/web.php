@@ -11,7 +11,12 @@
 |
 */
 
-Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+Route::group([
+  'prefix' => LaravelLocalization::setLocale(),
+  'middleware' => [ 
+    'localeSessionRedirect', 
+    'localizationRedirect', 
+    'localeViewPath' ] ], function()
 {
 
   Route::get('/', 'PageController@index');

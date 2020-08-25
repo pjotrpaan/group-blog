@@ -3,9 +3,9 @@
 @section('content')
   
   <div class="jumbotron text-center">
-    <h1>{{ $title }}</h1>
+    <h1>@lang('Group Blog App')</h1>
     <hr>
-    <p>Welcome to the dopest blog on the planet!</p>
+    <p>@lang('Welcome to the dopest blog on the planet!')</p>
   </div>
 
 @endsection('content')

@@ -1,1 +1,1 @@
-<a href="/dashboard" class="btn btn-default pull-right">To dashboard</a>
+<a href="/dashboard" class="btn btn-default pull-right">@lang('To dashboard')</a>
