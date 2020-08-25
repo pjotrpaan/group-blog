@@ -21,7 +21,7 @@ class CommentController extends Controller
     $comment->user_id = $request->user_id;
     $comment->post_id = $request->post_id;
     $comment->save();
-    return redirect()->route('posts.show', $request->post_id)->with('success', 'New comment successfully added!');
+    return redirect()->route('posts.show', $request->post_id)->with('success', __('New comment successfully added!'));
   }
 
   /**
@@ -34,6 +34,6 @@ class CommentController extends Controller
   {
     $comment = Comment::find($comment->id);
     $comment ->delete();
-    return redirect()->route('posts.show', $comment->post->id)->with('success', 'Comment successfully deleted!');
+    return redirect()->route('posts.show', $comment->post->id)->with('success', __('Comment successfully deleted!'));
   }
 }

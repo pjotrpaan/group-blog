@@ -1,3 +1,4 @@
+<div class="container messages">
   <div class="row">
     <div class="col-md-4 col-md-offset-4 text-center p-0">
       <b>
@@ -23,3 +24,4 @@
       </b>
     </div>
   </div>
+</div>

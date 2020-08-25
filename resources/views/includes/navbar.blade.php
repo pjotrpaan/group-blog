@@ -18,13 +18,13 @@
     </div>
 
     <div class="collapse navbar-collapse">
-
+    @php $locale = session()->get('locale'); @endphp
       <!-- Left Side Of Navbar -->
       <ul class="nav navbar-nav">
-        <li class="{{ Request::is('/') ? 'active' : '' }}">
+        <li class="{{ Request::is($locale) ? 'active' : '' }}">
           <a href="/">@lang('Home')</a>
         </li>
-        <li class="{{ Request::is('posts') ? 'active' : '' }}">
+        <li class="{{ Request::is($locale.'/posts') ? 'active' : '' }}">
           <a href="/posts">@lang('Posts')</a>
         </li>
       </ul>
@@ -32,7 +32,6 @@
       <!-- Right Side Of Navbar -->
       <ul class="nav navbar-nav navbar-right">
         <!-- Localization Links -->
-        @php $locale = session()->get('locale'); @endphp
         <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 @if ($locale == 'en')
@@ -66,14 +65,16 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="/dashboard">@lang('Dashboard')</a></li>
+              <li><a href="/">@lang('Home')</a></li>
+              <li><a href="/posts">@lang('Posts')</a></li>
               <li>
-                <a href="{{ route('logout') }}"
+                <a href="{{  \LaravelLocalization::localizeURL('/logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
                   @lang('Logout')
                 </a>
                 <form id="logout-form" 
-                  action="{{ route('logout') }}" 
+                  action="{{  \LaravelLocalization::localizeURL('/logout') }}" 
                   method="POST" 
                   style="display: none;">
                   {{ csrf_field() }}

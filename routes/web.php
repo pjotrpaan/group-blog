@@ -21,19 +21,18 @@ Route::group([
 
   Route::get('/', 'PageController@index');
 
-  Route::resource('posts', 'PostController');
+  Route::resource(LaravelLocalization::transRoute('routes.posts'), 'PostController');
 
-  Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
+  Route::get(LaravelLocalization::transRoute('routes.post'), 'PostController@show')->name('posts.show');
 
-  Route::get('/dashboard', 'DashboardController@index');
+  Route::get(LaravelLocalization::transRoute('routes.dashboard'), 'DashboardController@index');
 
-
+  Route::resource('comment','CommentController');
 
 
   Auth::routes();
 
 });
 
-Route::resource('comment','CommentController');
 
 Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');

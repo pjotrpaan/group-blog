@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container edit">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       @include('includes.to_dashboard')
@@ -47,6 +47,6 @@
   
     </div>
   </div>
-
+</div>
 
 @endsection('content')

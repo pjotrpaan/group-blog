@@ -15,16 +15,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
 
-  <body>
+  <body style="background-image:url({{ asset("storage/cover_images/ian-dooley-hpTH5b6mo2s-unsplash.jpg") }});">
     <!-- App container -->
     <div>
-      @include('includes.navbar')
-      <div class="container main">
-        @include('includes.messages')
-        <!-- Page content -->
-        @yield('content')
-      </div>
+    @include('includes.navbar')
+    
+      @include('includes.messages')
+      <!-- Page content -->
+      @yield('content')
     </div>
+    <footer>&copy; {{ date('Y') }} @lang('Group Blog App')</footer>
     <!-- Scripts -->
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>

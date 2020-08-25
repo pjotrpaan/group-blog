@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div class="container main">
   <div>
     @include('includes.create_post')
     <h1>@lang('Latest blog posts')</h1>
@@ -38,8 +38,8 @@
       @endforeach
       {{ $posts->links() }}
     </div>
-  @else
-    <p class="">@lang('Oops! No blog posts available. You could be the first one to create a post.')</p>
-  @endif 
-
+    @else
+      <p class="">@lang('Oops! No blog posts available. You could be the first one to create a post.')</p>
+    @endif 
+  </div>
 @endsection('content')

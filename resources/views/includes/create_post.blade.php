@@ -1,3 +1,9 @@
 @if(!Auth::guest())
-  <a href="/posts/create" class="btn btn-primary create-btn pull-right">@lang('Create new post')</a>
+  {!! Form::open([ 
+    'action' => 'PostController@create', 
+    'method' => 'GET', 
+    'enctype' => 'multipart/form-data'
+  ]) !!}
+    <button type="submit" class="btn btn-primary create-btn pull-right">@lang('Create new post')</button> 
+  {!! Form::close() !!}
 @endif

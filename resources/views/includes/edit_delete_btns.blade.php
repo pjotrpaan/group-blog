@@ -1,7 +1,13 @@
 @if(!Auth::guest())
   @if(Auth::user()->id == $post->user_id)
     <div class="edit-section">
-      <a href="/posts/{{ $post->id }}/edit" class="btn btn-default pull-left">@lang('Edit post')</a>
+      {!! Form::open([ 
+        'action' => ['PostController@edit', $post->id], 
+        'method' => 'GET', 
+        'enctype' => 'multipart/form-data'
+      ]) !!}
+        <button type="submit" class="btn btn-default create-btn pull-left">@lang('Edit post')</button> 
+      {!! Form::close() !!}
       {!! Form::open([ 
         'action' => ['PostController@destroy', $post->id], 
         'method' => 'POST'

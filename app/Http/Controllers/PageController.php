@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -14,6 +15,10 @@ class PageController extends Controller
   public function index()
   {
     $title = 'Group Blog Home Page';
-    return view('pages.index')->with('title', $title);
+    $posts = Post::orderBy('created_at', 'desc')->paginate(6);
+    return view('pages.index')->with([
+      'title' => $title,
+      'posts' => $posts,
+    ]);
   }
 }
