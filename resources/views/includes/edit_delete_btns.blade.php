@@ -1,5 +1,6 @@
 @if(!Auth::guest())
   @if(Auth::user()->id == $post->user_id)
+    <hr>
     <div class="edit-section">
       {!! Form::open([ 
         'action' => ['PostController@edit', $post->id], 
