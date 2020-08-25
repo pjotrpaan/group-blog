@@ -11,19 +11,24 @@
 |
 */
 
-Route::get('/', 'PageController@index');
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+
+  Route::get('/', 'PageController@index');
+
+  Route::resource('posts', 'PostController');
+
+  Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
+
+  Route::get('/dashboard', 'DashboardController@index');
+
+
+
+
+  Auth::routes();
+
+});
 
 Route::resource('comment','CommentController');
 
-Route::resource('posts', 'PostController');
-
-Route::get('/posts/{id}', 'PostController@show')->name('posts.show');
-
-Route::get('/dashboard', 'DashboardController@index');
-
 Route::post('ckeditor/image_upload', 'CkeditorController@upload')->name('upload');
-
-
-
-Auth::routes();
-
