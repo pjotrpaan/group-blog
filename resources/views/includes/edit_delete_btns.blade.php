@@ -20,6 +20,5 @@
         <button type="submit" class="btn btn-danger pull-right">@lang('Delete post')</button>
       {!! Form::close() !!}
     </div>
-    <hr>
   @endif
 @endif

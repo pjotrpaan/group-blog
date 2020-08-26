@@ -1,5 +1,6 @@
 <!-- Comments section -->
 <div class="comments-container">
+  <hr>
   <h2>@lang('Comments')</h2>
   <br>
   @forelse ($post->comments as $comment)

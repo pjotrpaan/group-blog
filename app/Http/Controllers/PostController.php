@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\StorePostRequest;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Storage;
 
@@ -45,14 +46,8 @@ class PostController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(StorePostRequest $request)
   {
-    // Validate form fields
-    $this->validate($request, [
-      'title' => 'required',
-      'body' => 'required',
-      'cover_image' => 'image|nullable|max:1999',
-    ]);
     // Handle file upload
     if ($request->hasFile('cover_image')) 
     {
@@ -108,14 +103,8 @@ class PostController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(StorePostRequest $request, $id)
   {
-    // Validate form fields
-    $this->validate($request, [
-      'title' => 'required',
-      'body' => 'required',
-      'cover_image' => 'image|nullable|max:1999',
-    ]);
     // Update post
     $post = Post::find($id);
     $post->title = $request->input('title');
@@ -151,4 +140,5 @@ class PostController extends Controller
     $post->delete();
     return redirect('/posts')->with('success', __('Blog post successfully deleted!'));
   }
+
 }
