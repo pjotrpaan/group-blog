@@ -3,7 +3,7 @@
   @if(Auth::user()->id == $post->user_id)
     <hr>
     <div class="edit-section">
-    <!-- Edit button -->
+      <!-- Edit button -->
       {!! Form::open([ 
         'action' => ['PostController@edit', $post->id], 
         'method' => 'GET', 

@@ -33,7 +33,7 @@
           ]) }}
         </div>
         <div class="form-group">
-          {{ Form::label('cover_image', __('Upload cover image (recommended size 1200x400px)')) }}
+          {{ Form::label('cover_image', __('Upload cover image (maximum size W1200xH400px)')) }}
           {{ Form::file('cover_image') }}
         </div>
         {{ Form::hidden('_method', 'PUT') }}

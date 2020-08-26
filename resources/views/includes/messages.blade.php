@@ -7,20 +7,20 @@
         @if(count($errors) > 0)
           @foreach ($errors->all() as $error)
             <div class="alert alert-danger">
-              {{ $error }}
+              {{ ucfirst($error) }}
             </div>   
           @endforeach
         @endif
         <!-- Success message -->
         @if(session('success'))
           <div class="alert alert-success">            
-            {{ session('success') }}         
+            {{ ucfirst(session('success')) }}         
           </div>
         @endif
         <!-- Session error message -->
         @if(session('error'))
           <div class="alert alert-danger">  
-            {{ session('error') }}
+            {{ ucfirst(session('error')) }}
           </div>
         @endif
       </b>

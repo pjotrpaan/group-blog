@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-  
   /**
    * Connected table
    */
@@ -37,5 +36,4 @@ class Post extends Model
   {
     return $this->hasMany('App\Models\Comment');
   }
-
 }
