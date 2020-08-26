@@ -24,7 +24,7 @@ The application has localization implemented with user interface ready to serve 
 * After npm install you can either:
   * run 'npm run dev' to re-compile assets after modifying them 
   * use 'npm run watch' to have the app register changes to Sass and re-compile assets accordingly.
-* To use images originally added to the project, please copy folders 'cover_images/' and 'lang_images/' from 'project-name/public/images/' to 'project-name/storage/app/public/'. FYI! Logo image used in the project is subject to copyright and any unauthorised usage or sharing of the logo is not allowed and will have legal consequences!
+* To use images originally added to the project, please copy folders 'cover_images/' and 'lang_images/' from 'project-name/public/images/' to 'project-name/storage/app/public/'.
 * To start the application after installation has finished type 'php artisan serve' in bash project root. Happy blogging!
 
 
