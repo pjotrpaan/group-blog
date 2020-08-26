@@ -17,6 +17,7 @@ The application has localization implemented with user interface ready to serve 
 
 ## Getting started
 * Make sure you have Apache and MySQL running in the background. Database information needs to be set in .env file, which has to be saved in the project root so app knows where to store migrations/users/posts/comments data. Please see .env.example file in project root folder for reference.
+* As this is a Laravel project, it utilizes Composer to manage its dependencies. So you will need to make sure you have [Composer](https://getcomposer.org/) installed on your machine.
 * Clone project and install project using 'composer install' command in project root folder.
 * To run migrations simply use 'php artisan migrate' in bash while you are in the project root folder. If something went wrong you can do a rollback using command 'php artisan migrate:rollback'.
 * Project uses Sass and webpack to compile js and css styles. You need to run 'npm install' in app root folder to enable Sass and Bootstrap.
