@@ -8384,7 +8384,7 @@ td {
   margin-bottom: 66px;
 }
 
-.index > div.well {
+.index > div:first-child {
   opacity: 0.8;
   border: 8px solid #fff;
 }

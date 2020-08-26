@@ -18,12 +18,12 @@ class DateController extends Controller
   {
     if ($locale == 'en') 
     {
-      $formattedDate = Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y H:i');
+      $formattedDate = Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d/m/Y');
       return $formattedDate;
     } 
     else if ($locale == 'et')
     {
-      $formattedDate = Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y H:i');
+      $formattedDate = Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('d.m.Y');
       return $formattedDate;
     }
   }

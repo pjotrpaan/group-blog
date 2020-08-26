@@ -20,7 +20,7 @@
     </div>
   </div>
   
-  <div class="row equal">
+  <div class="row equal well">
     
     @if(count($posts) > 0)
       @foreach ($posts as $post)
@@ -53,8 +53,7 @@
     </div>
     @else
     <div class="col-lg-12 col-md-12 col-sm-12 jumbotron">
-      <div class="">@lang('Oops! No blog posts available. You could be the first one to create a post.')</div>
-      @include('includes.create_post')
+      <p>@lang('Oops! No blog posts available. You could be the first one to create a post.')</p>
     </div>
     @endif 
   </div>
