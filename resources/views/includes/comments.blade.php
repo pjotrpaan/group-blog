@@ -1,5 +1,6 @@
+<!-- Comments section -->
 <div class="comments-container">
-  <h3>@lang('Comments')</h3>
+  <h2>@lang('Comments')</h2>
   <br>
   @forelse ($post->comments as $comment)
     <p>{{ $comment->body }}</p>
@@ -29,13 +30,12 @@
   @empty
     <p class="text-center"><b>@lang('This post has no comments')</b></p>
   @endforelse
-
+  <!-- Commenting form -->
   {!! Form::open([ 
     'action' => 'CommentController@store', 
     'method' => 'POST', 
     'enctype' => 'multipart/form-data'
   ]) !!}
-
     <div class="form-group">
       {{ Form::label('body', __('Add comment')) }}
       {{ Form::textarea('body', '', [ 
@@ -43,16 +43,12 @@
         'placeholder' => __('Enter comment...')
       ]) }}
     </div>
-
     @if(Auth::guest())
       {!! Form::hidden('user_id', 0) !!}
     @else
       {!! Form::hidden('user_id', Auth::user()->id) !!}
     @endif
-
     {!! Form::hidden('post_id', $post->id) !!}
     <button type="submit" class="btn btn-primary btn-block btn-lg">@lang('Submit comment')</button>
-    
   {!! Form::close() !!}
-
 </div>

@@ -53,7 +53,6 @@ class PostController extends Controller
       'body' => 'required',
       'cover_image' => 'image|nullable|max:1999',
     ]);
-
     // Handle file upload
     if ($request->hasFile('cover_image')) 
     {
@@ -63,7 +62,6 @@ class PostController extends Controller
     {
       $coverImageToStore = 'cover_placeholder_1200x400px.jpg';
     }
-
     // Create post
     $post = new Post;
     $post->title = $request->input('title');
@@ -95,13 +93,11 @@ class PostController extends Controller
   public function edit($id)
   {
     $post = Post::find($id);
-
     // Don't allow unregistered users edit posts
     if (auth()->user()->id !== $post->user_id) 
     {
       return redirect('/posts')->with('error', __('You are not authorised to edit posts.'));
     }
-
     return view('posts.edit')->with('post', $post);
   }
 
@@ -120,7 +116,6 @@ class PostController extends Controller
       'body' => 'required',
       'cover_image' => 'image|nullable|max:1999',
     ]);
-    
     // Update post
     $post = Post::find($id);
     $post->title = $request->input('title');
@@ -143,13 +138,11 @@ class PostController extends Controller
   public function destroy($id)
   {
     $post = Post::find($id);
-
     // Don't allow unregistered users delete posts
     if (auth()->user()->id !== $post->user_id) 
     {
       return redirect('/posts')->with('error', __('You are not authorised to delete posts.'));
     }
-
     // Delete uploaded cover from storage
     if ($post->cover_image != 'cover_placeholder_1200x400px.jpg') 
     {
@@ -158,5 +151,4 @@ class PostController extends Controller
     $post->delete();
     return redirect('/posts')->with('success', __('Blog post successfully deleted!'));
   }
-
 }

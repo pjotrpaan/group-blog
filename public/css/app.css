@@ -8335,12 +8335,14 @@ button.close {
 
 html {
   height: 100%;
-  background-color: #5cd1e4;
+  margin: 0;
+  background-color: #38b0be;
 }
 
 body {
   width: auto;
   height: 100%;
+  background-color: #38b0be;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -8362,6 +8364,10 @@ th,
 td {
   word-break: break-all;
   font-size: 0.95rem;
+}
+
+a {
+  color: #494f52;
 }
 
 .main {
@@ -8480,6 +8486,11 @@ td {
   border-radius: 5px;
 }
 
+.dashboard-container h1 {
+  font-size: 2.4rem;
+  margin-left: 11px;
+}
+
 .equal {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8501,12 +8512,13 @@ td {
 
 footer {
   text-align: center;
-  color: #636363;
-  font-size: 1.0rem;
+  color: #7a7a7a;
+  font-size: 1.2rem;
   background-color: #000;
   width: 100%;
   padding: 8px;
   position: fixed;
+  margin-bottom: 0;
   bottom: 0;
 }
 

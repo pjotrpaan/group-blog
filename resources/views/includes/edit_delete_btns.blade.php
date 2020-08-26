@@ -1,7 +1,9 @@
+<!-- Edit post buttons section -->
 @if(!Auth::guest())
   @if(Auth::user()->id == $post->user_id)
     <hr>
     <div class="edit-section">
+    <!-- Edit button -->
       {!! Form::open([ 
         'action' => ['PostController@edit', $post->id], 
         'method' => 'GET', 
@@ -9,6 +11,7 @@
       ]) !!}
         <button type="submit" class="btn btn-default create-btn pull-left">@lang('Edit post')</button> 
       {!! Form::close() !!}
+      <!-- Delete button -->
       {!! Form::open([ 
         'action' => ['PostController@destroy', $post->id], 
         'method' => 'POST'

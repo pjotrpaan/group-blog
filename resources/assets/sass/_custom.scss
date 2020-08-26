@@ -1,11 +1,13 @@
 html {
   height: 100%;
-  background-color: #5cd1e4;
+  margin: 0;
+  background-color: rgb(56, 176, 190);;
 }
 
 body{
   width:auto;
   height: 100%;
+  background-color: rgb(56, 176, 190);;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -22,14 +24,15 @@ th, td {
   word-break: break-all;
   font-size: 0.95rem;
 }
-
+a {
+  color: #494f52;
+}
 .main {
   padding: 11px 35px;
   background: #fff;
   border-radius: 5px;
   margin-bottom: 66px;
 }
-
 
 .well {
   margin-right: 0px;
@@ -58,8 +61,7 @@ th, td {
   opacity: 0.9;
 }
 
-.create h1,
-.edit h1 {
+.create h1, .edit h1 {
   color: #fff;
   filter: drop-shadow(0 0 0.35rem black);
 }
@@ -84,8 +86,7 @@ th, td {
   border: 1px solid transparent;
 }
 
-.create .well,
-.edit .well{
+.create .well, .edit .well{
   width: calc(100% - 22px);
   margin: 15px 11px 66px;
 }
@@ -97,6 +98,7 @@ th, td {
   z-index: 100;
   opacity: 0.65;
 }
+
 .back-btn:hover {
   opacity: 1.0;
 }
@@ -137,6 +139,12 @@ th, td {
   padding: 10px;
   border-radius: 5px;
 }
+
+.dashboard-container h1 {
+  font-size: 2.4rem;
+  margin-left: 11px;
+}
+
 .equal {
   display: flex;
   display: -webkit-flex;
@@ -147,6 +155,7 @@ th, td {
   min-width: 70px;
   padding: 5px;
 }
+
 .location-dropdown-menu .dropdown-item {
   margin: 10px;
   display: inline-block;
@@ -154,12 +163,13 @@ th, td {
 
 footer {
   text-align: center;
-  color: rgb(99, 99, 99);
-  font-size: 1.0rem;
+  color: rgb(122, 122, 122);
+  font-size: 1.2rem;
   background-color: #000;
   width: 100%;
   padding: 8px;
   position: fixed;
+  margin-bottom: 0;
   bottom: 0;
 }
 

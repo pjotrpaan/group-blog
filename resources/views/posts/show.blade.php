@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- Show post section -->
 <div class="container main">
   <div class="row single-post-heading">
     <a href="/posts" class="btn btn-default back-btn pull-right">@lang('Back to posts')</a>
-    <img class="single-cover" src="/storage/cover_images/{{ $post->cover_image }}" />
+    <img class="single-cover" src="/storage/cover_images/{{ $post->cover_image }}" alt="" />
     <h1 class="single-post-h1">{{ $post->title }}</h1>
     <div>
       <small>
@@ -17,14 +18,12 @@
       </small>
     </div>
   </div>
-
   <div class="row">
     <p>{!! $post->body !!}</p>
   </div>
   <div class="row">
-  @include('includes.edit_delete_btns')  
-
-  @include('includes.comments')
+    @include('includes.edit_delete_btns')  
+    @include('includes.comments')
   </div>
 </div>
 @endsection('content')

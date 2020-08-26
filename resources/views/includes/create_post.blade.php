@@ -1,3 +1,4 @@
+<!-- Create post button section -->
 @if(!Auth::guest())
   {!! Form::open([ 
     'action' => 'PostController@create', 

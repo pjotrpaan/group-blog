@@ -11,21 +11,19 @@ class CkeditorController extends Controller
    * Store a uploaded resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
-   * @return 
+   * @return void
    */
   public function upload(Request $request)
   {
     if($request->hasFile('upload')) 
     {
-      //filename to store
+      // Filename to store
       $filenameToStore = StoreController::saveFile($request, 'upload');
-
       $CKEditorFuncNum = $request->input('CKEditorFuncNum');
       $url = asset('storage/upload/'.$filenameToStore);
       $msg = 'File upload successful!';
       $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
-        
-      // Render HTML output
+      // Show upload confirmation
       @header('Content-type: text/html; charset=utf-8');
       echo $re;
     }
