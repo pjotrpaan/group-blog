@@ -36,7 +36,7 @@
                     'action' => ['PostController@edit', $post->id],
                     'method' => 'GET'
                   ]) !!}
-                    <button type="submit" class="btn btn-default btn-xs">@lang('Edit')</button>
+                    <button type="submit" class="btn btn-primary btn-xs">@lang('Edit')</button>
                   {!! Form::close() !!}
                 </td>
                 <td>
