@@ -9,7 +9,7 @@
         'method' => 'GET', 
         'enctype' => 'multipart/form-data'
       ]) !!}
-        <button type="submit" class="btn btn-default create-btn pull-left">@lang('Edit post')</button> 
+        <button type="submit" class="btn btn-primary create-btn pull-left">@lang('Edit post')</button> 
       {!! Form::close() !!}
       <!-- Delete button -->
       {!! Form::open([ 
